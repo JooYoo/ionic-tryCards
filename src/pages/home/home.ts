@@ -1,10 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
-
-import { DomSanitizer } from '@angular/platform-browser';
 import { trigger, transition, useAnimation, state, style, animate, keyframes } from '@angular/animations';
-
-import * as kf from './keyframes'
-
 
 @Component({
   selector: 'page-home',
@@ -24,20 +19,6 @@ import * as kf from './keyframes'
       transition('goFlip => goBack', animate('200ms ease-out')),
       transition('goBack => goFlip', animate('400ms ease-in'))
     ]),
-
-    trigger('cardAnimator',[
-    
-      transition('* => zoomOutDown', animate(1000, keyframes(kf.zoomOutDown))),
-
-      transition('* => wobble', animate(1000, keyframes(kf.wobble))),
-      transition('* => swing', animate(1000, keyframes(kf.swing))),
-      transition('* => jello', animate(1000, keyframes(kf.jello))),
-      transition('* => zoomOutRight', animate(1000, keyframes(kf.zoomOutRight))),
-      transition('* => zoomOutLeft', animate(1000, keyframes(kf.zoomOutLeft))),
-      transition('* => slideOutLeft', animate(1000, keyframes(kf.slideOutLeft))),
-      transition('* => rotateOutUpRight', animate(1000, keyframes(kf.rotateOutUpRight))),
-      transition('* => flipOutY', animate(1000, keyframes(kf.flipOutY))),
-    ])
   ]
   
 
@@ -73,18 +54,15 @@ export class HomePage {
     }
     this.ready = true;
   }
+
   onCardInteract(event) {
     console.log(event);
   }
-
 
   isFlip: string = 'goBack';
   toggleFlip() {
     console.log('clicked card!!')
     this.isFlip = (this.isFlip == 'goBack') ? 'goFlip' : 'goBack';
   }
-
- 
-
 
 }
