@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 import { trigger, transition, useAnimation, state, style, animate, keyframes } from '@angular/animations';
-import * as $ from 'jquery'
+
 
 @Component({
   selector: 'page-home',
